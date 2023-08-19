@@ -1,3 +1,8 @@
+window.onpopstate = function(event) {
+  console.log(event.state.section);
+  showSection(event.state.section);
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   // By default, load the inbox
   load_mailbox('inbox');
@@ -14,6 +19,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 function compose_email() {
+
+  history.pushState({section: "compose"}, "", `#compose`);
 
   // Show compose view and hide other views
   document.querySelector('#emails-view').style.display = 'none';
@@ -33,6 +40,7 @@ function load_mailbox(mailbox) {
   document.querySelector('#compose-view').style.display = 'none';
   document.querySelector('#email-view').style.display = 'none';
 
+  history.pushState({section: mailbox}, "", `#${mailbox}`);
 
   // Show the mailbox name
   document.querySelector('#emails-view').innerHTML = `<h3>${mailbox.charAt(0).toUpperCase() + mailbox.slice(1)}</h3>`;
