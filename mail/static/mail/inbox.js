@@ -1,6 +1,11 @@
 window.onpopstate = function(event) {
   console.log(event.state.section);
-  showSection(event.state.section);
+  if (event.state.section === "compose") {
+    compose_email()
+  }
+ else {
+    load_mailbox(event.state.section)
+ }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
