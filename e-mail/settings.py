@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+CSRF_TRUSTED_ORIGINS = ['https://treasure-mayowa-animated-waddle-q66w6r7px7j39q44-8000.preview.app.github.dev']
+
 
 # Application definition
 
