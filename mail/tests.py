@@ -9,4 +9,4 @@ class Testing(TestCase):
     def test_index(self):
        c = Client()
        response = c.get("")
-       self.assertEqual(response.status_code, 301)
+       self.assertEqual(response.status_code, 302)
